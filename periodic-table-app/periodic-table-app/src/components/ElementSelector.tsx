@@ -22,7 +22,7 @@ const ElementSelector = ({ selectedElements, setSelectedElements }) => {
 
     return (
         <div>
-            <h2>Select Elements</h2>
+            <h2>Select <Elements></Elements></h2>
             <div className="element-grid">
                 {elementsData.map((element) => (
                     <div key={element.symbol} className="element" onClick={() => handleSelect(element)}>
