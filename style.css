@@ -1,57 +1,86 @@
 body {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;
+  font-family: Calibri, sans-serif;
+  background-color: #f2f2f2;
   text-align: center;
-  margin: 20px;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
 }
 
 #periodic-table {
   display: grid;
   grid-template-columns: repeat(18, 50px);
-  grid-template-rows: repeat(10, 50px);
-  gap: 5px;
+  grid-auto-rows: 50px;
+  gap: 3px;
   justify-content: center;
-  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .element {
-  width: 50px;
-  height: 50px;
-  border-radius: 6px;
+  border: 1px solid #aaa;
+  background-color: #fff;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  font-weight: bold;
+  justify-content: center;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  font-size: 12px;
+  padding: 2px;
+  border-radius: 4px;
+  transition: transform 0.1s, background-color 0.2s;
 }
 
 .element:hover {
-  transform: scale(1.15);
-  z-index: 2;
+  background-color: #e6f7ff;
+  transform: scale(1.05);
 }
 
-.alkali { background-color: #ffb5b5; }
-.alkaline { background-color: #ffe4bc; }
-.nonmetal { background-color: #d2fff2; }
-.noble { background-color: #c5f3ff; }
-.halogen { background-color: #ffffc9; }
-.metalloid { background-color: #fcc5ff; }
-.transition { background-color: #ad9dcf; }
-.post-transition { background-color: #ccff65; }
-.lanthanide { background-color: #f17777; }
-.actinide { background-color: #c7ffc5; }
+.element.selected {
+  border: 3px solid #000;
+  background-color: #ffe6b3;
+}
+
+.number {
+  font-size: 10px;
+}
+
+.symbol {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.name {
+  font-size: 10px;
+}
 
 #popup {
   position: absolute;
-  min-width: 200px;
-  max-width: 250px;
-  padding: 12px;
-  background: white;
-  border: 1px solid #000000;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  background-color: #fff;
+  border: 1px solid #aaa;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
   display: none;
+  pointer-events: none;
   z-index: 10;
-  pointer-events: none; 
-  text-align: left;
+}
+
+#info {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+#grams {
+  width: 100px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-family: Calibri, sans-serif;
+  cursor: pointer;
 }
