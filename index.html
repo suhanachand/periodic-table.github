@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Periodic Table</title>
+  <meta charset="UTF-8" />
+  <title>Interactive Periodic Table</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <h1>Periodic Table</h1>
-  <div class="table" id="periodic-table"></div>
-  <div id="popup"></div>
+  <header>
+    <h1>Interactive Periodic Table</h1>
+  </header>
+
+  <main>
+    <section id="table-area">
+      <div id="periodic-table" aria-label="Periodic table"></div>
+      <div id="legend">
+        <h3>Legend</h3>
+        <div class="legend-row"><span class="legend-box alkali"></span> Alkali Metal</div>
+        <div class="legend-row"><span class="legend-box alkaline"></span> Alkaline Earth</div>
+        <div class="legend-row"><span class="legend-box transition"></span> Transition Metal</div>
+        <div class="legend-row"><span class="legend-box post-transition"></span> Post-Transition</div>
+        <div class="legend-row"><span class="legend-box metalloid"></span> Metalloid</div>
+        <div class="legend-row"><span class="legend-box nonmetal"></span> Nonmetal</div>
+        <div class="legend-row"><span class="legend-box halogen"></span> Halogen</div>
+        <div class="legend-row"><span class="legend-box noble"></span> Noble Gas</div>
+        <div class="legend-row"><span class="legend-box lanthanide"></span> Lanthanide</div>
+        <div class="legend-row"><span class="legend-box actinide"></span> Actinide</div>
+      </div>
+    </section>
+
+    <section id="calculator">
+      <h2>Element Combination Calculator</h2>
+      <p id="selected-elements">Selected: <em>None</em></p>
+      <p id="total-mass">Total Molar Mass: 0 g/mol</p>
+
+      <label for="grams">Enter Mass (grams): </label>
+      <input type="number" id="grams" min="0" step="any" placeholder="e.g., 25.0">
+      <button id="calc-moles">Calculate Moles</button>
+
+      <p id="moles-output">Moles: -</p>
+
+      <div id="notes">
+        <small>Click elements to add them to the combination. Click again to remove.</small>
+      </div>
+    </section>
+  </main>
+
+  <div id="popup" role="tooltip" aria-hidden="true"></div>
+
   <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
