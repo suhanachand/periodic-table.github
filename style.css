@@ -1,0 +1,86 @@
+body {
+  font-family: Calibri, sans-serif;
+  background-color: #f2f2f2;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+#periodic-table {
+  display: grid;
+  grid-template-columns: repeat(18, 50px);
+  grid-auto-rows: 50px;
+  gap: 3px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.element {
+  border: 1px solid #aaa;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  padding: 2px;
+  border-radius: 4px;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+.element:hover {
+  background-color: #e6f7ff;
+  transform: scale(1.05);
+}
+
+.element.selected {
+  border: 3px solid #000;
+  background-color: #ffe6b3;
+}
+
+.number {
+  font-size: 10px;
+}
+
+.symbol {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.name {
+  font-size: 10px;
+}
+
+#popup {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  display: none;
+  pointer-events: none;
+  z-index: 10;
+}
+
+#info {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+#grams {
+  width: 100px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-family: Calibri, sans-serif;
+  cursor: pointer;
+}

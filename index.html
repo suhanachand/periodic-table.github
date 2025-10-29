@@ -2,51 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Interactive Periodic Table</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Interactive Periodic Table</h1>
-  </header>
+  <h1>Interactive Periodic Table</h1>
+  
+  <div id="periodic-table"></div>
 
-  <main>
-    <section id="table-area">
-      <div id="periodic-table" aria-label="Periodic table"></div>
-      <div id="legend">
-        <h3>Legend</h3>
-        <div class="legend-row"><span class="legend-box alkali"></span> Alkali Metal</div>
-        <div class="legend-row"><span class="legend-box alkaline"></span> Alkaline Earth</div>
-        <div class="legend-row"><span class="legend-box transition"></span> Transition Metal</div>
-        <div class="legend-row"><span class="legend-box post-transition"></span> Post-Transition</div>
-        <div class="legend-row"><span class="legend-box metalloid"></span> Metalloid</div>
-        <div class="legend-row"><span class="legend-box nonmetal"></span> Nonmetal</div>
-        <div class="legend-row"><span class="legend-box halogen"></span> Halogen</div>
-        <div class="legend-row"><span class="legend-box noble"></span> Noble Gas</div>
-        <div class="legend-row"><span class="legend-box lanthanide"></span> Lanthanide</div>
-        <div class="legend-row"><span class="legend-box actinide"></span> Actinide</div>
-      </div>
-    </section>
+  <div id="calculator">
+    <h2>Element Combination Calculator</h2>
+    <p id="selected-elements">Selected: None</p>
+    <p id="total-mass">Total Molar Mass: 0 g/mol</p>
 
-    <section id="calculator">
-      <h2>Element Combination Calculator</h2>
-      <p id="selected-elements">Selected: <em>None</em></p>
-      <p id="total-mass">Total Molar Mass: 0 g/mol</p>
+    <label for="grams">Enter Mass (grams): </label>
+    <input type="number" id="grams" min="0" step="any" />
+    <button id="calc-moles">Calculate Moles</button>
 
-      <label for="grams">Enter Mass (grams): </label>
-      <input type="number" id="grams" min="0" step="any" placeholder="e.g., 25.0">
-      <button id="calc-moles">Calculate Moles</button>
+    <p id="moles-output">Moles: -</p>
+  </div>
 
-      <p id="moles-output">Moles: -</p>
+  <div id="popup"></div>
+  <div id="molar-mass-calculator">
+  <h2>Molar Mass Calculator</h2>
+  <div id="element-list"></div>
+  <button onclick="addElement()">Add Element</button>
+  <p>Total Molar Mass: <span id="total-mass">0</span> g/mol</p>
+</div>
 
-      <div id="notes">
-        <small>Click elements to add them to the combination. Click again to remove.</small>
-      </div>
-    </section>
-  </main>
+<div id="lewis-diagram-workshop">
+  <h2>Lewis Diagram Builder</h2>
+  <div id="canvas-container">
+    <canvas id="lewis-canvas" width="600" height="400" style="border:1px solid #000;"></canvas>
+  </div>
+</div>
 
-  <div id="popup" role="tooltip" aria-hidden="true"></div>
 
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="script.js"></script>
 </body>
 </html>
