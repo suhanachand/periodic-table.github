@@ -1,14 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Periodic Table</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Periodic Table</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Periodic Table</h1>
-  <div class="table" id="periodic-table"></div>
+  <h1>Interactive Periodic Table</h1>
+  
+  <div id="periodic-table"></div>
+
+  <div id="calculator">
+    <h2>Element Combination Calculator</h2>
+    <p id="selected-elements">Selected: None</p>
+    <p id="total-mass">Total Molar Mass: 0 g/mol</p>
+
+    <label for="grams">Enter Mass (grams): </label>
+    <input type="number" id="grams" min="0" step="any" />
+    <button id="calc-moles">Calculate Moles</button>
+
+    <p id="moles-output">Moles: -</p>
+  </div>
+
   <div id="popup"></div>
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <div id="molar-mass-calculator">
+  <h2>Molar Mass Calculator</h2>
+  <div id="element-list"></div>
+  <button onclick="addElement()">Add Element</button>
+  <p>Total Molar Mass: <span id="total-mass">0</span> g/mol</p>
+</div>
+
+<div id="lewis-diagram-workshop">
+  <h2>Lewis Diagram Builder</h2>
+  <div id="canvas-container">
+    <canvas id="lewis-canvas" width="600" height="400" style="border:1px solid #000;"></canvas>
+  </div>
+</div>
+
+
+  <script src="script.js"></script>
 </body>
 </html>
