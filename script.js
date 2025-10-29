@@ -283,7 +283,7 @@ const elements = {
   Sb: { mass: 121.76, valence: 5 },
   Te: { mass: 127.60, valence: 6 },
   I:  { mass: 126.90, valence: 7 },
-  Xe: { mass: 131.29, valence: 8 },
+  Xe: { mass: 131.29, valence: 8 }
   Cs: { mass: 132.91, valence: 1 },
   Ba: { mass: 137.33, valence: 2 },
   La: { mass: 138.91, valence: 3 },
