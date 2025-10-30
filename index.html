@@ -7,18 +7,35 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Molar Mass Calculator</h2>
-  <button id="add-element">Add Element</button>
-  <ul id="compound-list"></ul>
-  <p>Total Molar Mass: <span id="total-mass">0.000</span></p>
+  <header>
+    <h1>Interactive Periodic Table & Lewis Diagram</h1>
+  </header>
 
-  <h2>Lewis Diagram</h2>
-  <div id="lewis-diagram" style="border:1px solid #000; min-height:100px;"></div>
+  <section class="table-section">
+    <input type="text" id="search" placeholder="Search element by symbol or name...">
+    <div id="periodic-table"></div>
+  </section>
 
-  <h2>Periodic Table</h2>
-  <div id="periodic-table" style="display:grid; grid-template-columns: repeat(18, 50px); gap:2px;"></div>
+  <section class="info-section">
+    <h2>Element Information</h2>
+    <div id="element-info">
+      <p>Hover over an element to see details.</p>
+    </div>
+  </section>
 
-  <script type="module" src="script.js"></script>
+  <section class="compound-section">
+    <h2>Build a Compound</h2>
+    <button onclick="addElement()">Add Element</button>
+    <div id="compound-list"></div>
+    <p>Total Molar Mass: <span id="total-mass">0.000</span> g/mol</p>
+  </section>
+
+  <section class="lewis-section">
+    <h2>Lewis Diagram Workspace</h2>
+    <p>Drag elements to create your molecule:</p>
+    <div id="lewis-workspace"></div>
+  </section>
+
+<script src="script.js"></script>
 </body>
-
 </html>
