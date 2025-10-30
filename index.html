@@ -3,42 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Periodic Table</title>
+  <title>Interactive Periodic Table & Lewis Diagram Workshop</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Interactive Periodic Table</h1>
-  
-  <div id="periodic-table"></div>
+  <h1>🧬 Interactive Periodic Table Workshop</h1>
 
-  <div id="calculator">
-    <h2>Element Combination Calculator</h2>
-    <p id="selected-elements">Selected: None</p>
-    <p id="total-mass">Total Molar Mass: 0 g/mol</p>
+  <div class="main-container">
+    <!-- PERIODIC TABLE -->
+    <div id="periodic-table" class="periodic-table"></div>
 
-    <label for="grams">Enter Mass (grams): </label>
-    <input type="number" id="grams" min="0" step="any" />
-    <button id="calc-moles">Calculate Moles</button>
+    <!-- WORKSHOP PANEL -->
+    <div class="workshop">
+      <h2>Compound Builder</h2>
+      <button id="add-btn">➕ Add Element</button>
+      <div id="compound-list" class="compound-list"></div>
+      <p><strong>Total Molar Mass:</strong> <span id="total-mass">0.000</span> g/mol</p>
 
-    <p id="moles-output">Moles: -</p>
+      <h2>Lewis Diagram Area</h2>
+      <p class="small">Drag valence electrons to visualize bonding</p>
+      <div id="lewis-diagram" class="lewis-diagram"></div>
+    </div>
   </div>
 
-  <div id="popup"></div>
-  <div id="molar-mass-calculator">
-  <h2>Molar Mass Calculator</h2>
-  <div id="element-list"></div>
-  <button onclick="addElement()">Add Element</button>
-  <p>Total Molar Mass: <span id="total-mass">0</span> g/mol</p>
-</div>
-
-<div id="lewis-diagram-workshop">
-  <h2>Lewis Diagram Builder</h2>
-  <div id="canvas-container">
-    <canvas id="lewis-canvas" width="600" height="400" style="border:1px solid #000;"></canvas>
-  </div>
-</div>
-
-
+  <div id="tooltip" class="tooltip"></div>
   <script src="script.js"></script>
 </body>
 </html>

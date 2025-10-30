@@ -1,86 +1,131 @@
 body {
-  font-family: Calibri, sans-serif;
-  background-color: #f2f2f2;
-  text-align: center;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  background: linear-gradient(to bottom right, #e0f7ff, #f5f5ff);
   margin: 0;
-  padding: 20px;
+  text-align: center;
+  color: #222;
 }
 
 h1 {
-  margin-bottom: 20px;
+  background: #0077b6;
+  color: white;
+  padding: 15px;
+  margin: 0;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-#periodic-table {
+.main-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+/* === PERIODIC TABLE === */
+.periodic-table {
   display: grid;
   grid-template-columns: repeat(18, 50px);
   grid-auto-rows: 50px;
-  gap: 3px;
+  gap: 4px;
   justify-content: center;
-  margin-bottom: 20px;
+  padding: 20px;
+  background: #ffffffb4;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.15);
 }
 
 .element {
-  border: 1px solid #aaa;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 12px;
-  padding: 2px;
-  border-radius: 4px;
-  transition: transform 0.1s, background-color 0.2s;
-}
-
-.element:hover {
-  background-color: #e6f7ff;
-  transform: scale(1.05);
-}
-
-.element.selected {
-  border: 3px solid #000;
-  background-color: #ffe6b3;
-}
-
-.number {
-  font-size: 10px;
-}
-
-.symbol {
+  border-radius: 8px;
+  border: 1px solid #ccc;
   font-weight: bold;
-  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
 }
-
-.name {
-  font-size: 10px;
-}
-
-#popup {
-  position: absolute;
-  background-color: #fff;
-  border: 1px solid #aaa;
-  padding: 5px 10px;
-  border-radius: 4px;
-  font-size: 12px;
-  display: none;
-  pointer-events: none;
+.element:hover {
+  transform: scale(1.15);
   z-index: 10;
 }
 
-#info {
-  margin-top: 20px;
-  font-size: 14px;
+/* Color groups (scientific palette) */
+.alkali { background-color: #ff9aa2; }
+.alkaline { background-color: #ffdac1; }
+.transition { background-color: #e2f0cb; }
+.post-transition { background-color: #b5ead7; }
+.metalloid { background-color: #c7ceea; }
+.nonmetal { background-color: #ffffb5; }
+.halogen { background-color: #ffb3ba; }
+.noble { background-color: #bae1ff; }
+.lanthanide { background-color: #d4a5a5; }
+.actinide { background-color: #c3aed6; }
+
+.tooltip {
+  position: absolute;
+  display: none;
+  background: #333;
+  color: white;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  z-index: 99;
+  pointer-events: none;
 }
 
-#grams {
-  width: 100px;
-  margin-top: 10px;
+/* === WORKSHOP === */
+.workshop {
+  width: 350px;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  text-align: left;
 }
 
-button {
-  margin-top: 10px;
-  padding: 5px 10px;
-  font-family: Calibri, sans-serif;
+#add-btn {
+  background: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
   cursor: pointer;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
+#add-btn:hover {
+  background: #005f86;
+}
+
+.compound-list div {
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 5px 10px;
+  margin: 5px 0;
+}
+
+.lewis-diagram {
+  min-height: 200px;
+  border: 2px dashed #0077b6;
+  border-radius: 10px;
+  background: #f0faff;
+  margin-top: 10px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.electron {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: yellow;
+  margin: 3px;
+  cursor: grab;
+}
+
+.small { font-size: 0.85em; color: #555; }
