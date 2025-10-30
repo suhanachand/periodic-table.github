@@ -1,32 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Periodic Table & Lewis Diagram Workshop</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Periodic Table & Lewis Diagram</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🧬 Interactive Periodic Table Workshop</h1>
+  <h2>Molar Mass Calculator</h2>
+  <button id="add-element">Add Element</button>
+  <ul id="compound-list"></ul>
+  <p>Total Molar Mass: <span id="total-mass">0.000</span></p>
 
-  <div class="main-container">
-    <!-- PERIODIC TABLE -->
-    <div id="periodic-table" class="periodic-table"></div>
+  <h2>Lewis Diagram</h2>
+  <div id="lewis-diagram" style="border:1px solid #000; min-height:100px;"></div>
 
-    <!-- WORKSHOP PANEL -->
-    <div class="workshop">
-      <h2>Compound Builder</h2>
-      <button id="add-btn">➕ Add Element</button>
-      <div id="compound-list" class="compound-list"></div>
-      <p><strong>Total Molar Mass:</strong> <span id="total-mass">0.000</span> g/mol</p>
+  <h2>Periodic Table</h2>
+  <div id="periodic-table" style="display:grid; grid-template-columns: repeat(18, 50px); gap:2px;"></div>
 
-      <h2>Lewis Diagram Area</h2>
-      <p class="small">Drag valence electrons to visualize bonding</p>
-      <div id="lewis-diagram" class="lewis-diagram"></div>
-    </div>
-  </div>
-
-  <div id="tooltip" class="tooltip"></div>
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
+
 </html>

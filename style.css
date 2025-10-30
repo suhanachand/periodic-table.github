@@ -1,131 +1,79 @@
 body {
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
-  background: linear-gradient(to bottom right, #e0f7ff, #f5f5ff);
+  font-family: Arial, sans-serif;
   margin: 0;
-  text-align: center;
+  background: #f5f5f5;
   color: #222;
 }
 
-h1 {
-  background: #0077b6;
+header {
+  background-color: #004080;
   color: white;
-  padding: 15px;
-  margin: 0;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  padding: 1rem;
+  text-align: center;
 }
 
-.main-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin-top: 25px;
+.table-section, .info-section, .compound-section, .lewis-section {
+  padding: 1rem 2rem;
+  margin-bottom: 1rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
 }
 
-/* === PERIODIC TABLE === */
-.periodic-table {
+#periodic-table {
   display: grid;
   grid-template-columns: repeat(18, 50px);
-  grid-auto-rows: 50px;
-  gap: 4px;
-  justify-content: center;
-  padding: 20px;
-  background: #ffffffb4;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.15);
+  gap: 2px;
 }
 
 .element {
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-weight: bold;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  line-height: 1.2;
+  border-radius: 5px;
   cursor: pointer;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.2s ease;
+  font-size: 12px;
+  padding: 2px;
 }
+
 .element:hover {
-  transform: scale(1.15);
-  z-index: 10;
+  outline: 2px solid #222;
 }
 
-/* Color groups (scientific palette) */
-.alkali { background-color: #ff9aa2; }
-.alkaline { background-color: #ffdac1; }
-.transition { background-color: #e2f0cb; }
-.post-transition { background-color: #b5ead7; }
-.metalloid { background-color: #c7ceea; }
-.nonmetal { background-color: #ffffb5; }
-.halogen { background-color: #ffb3ba; }
-.noble { background-color: #bae1ff; }
-.lanthanide { background-color: #d4a5a5; }
-.actinide { background-color: #c3aed6; }
+.alkali { background-color: #ff9999; }
+.alkaline { background-color: #ffcc99; }
+.transition { background-color: #ffd699; }
+.metalloid { background-color: #cccc99; }
+.nonmetal { background-color: #99ff99; }
+.noble { background-color: #99ccff; }
 
-.tooltip {
-  position: absolute;
-  display: none;
-  background: #333;
-  color: white;
-  padding: 6px 8px;
-  border-radius: 6px;
-  font-size: 11px;
-  z-index: 99;
-  pointer-events: none;
+#element-info p {
+  margin: 0.2rem 0;
 }
 
-/* === WORKSHOP === */
-.workshop {
-  width: 350px;
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  text-align: left;
+#compound-list {
+  margin-top: 0.5rem;
 }
 
-#add-btn {
-  background: #0077b6;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 8px 14px;
-  cursor: pointer;
-  font-size: 14px;
-  margin-bottom: 10px;
-}
-#add-btn:hover {
-  background: #005f86;
-}
-
-.compound-list div {
-  background: #f5f5f5;
-  border-radius: 6px;
-  padding: 5px 10px;
-  margin: 5px 0;
-}
-
-.lewis-diagram {
-  min-height: 200px;
-  border: 2px dashed #0077b6;
+#lewis-workspace {
+  width: 100%;
+  height: 300px;
+  border: 2px dashed #222;
   border-radius: 10px;
-  background: #f0faff;
-  margin-top: 10px;
-  padding: 10px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  padding: 10px;
 }
-
-.electron {
-  width: 15px;
-  height: 15px;
+.lewis-element {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: yellow;
-  margin: 3px;
+  margin: 5px;
+  background-color: #99ccff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: grab;
+  font-weight: bold;
 }
-
-.small { font-size: 0.85em; color: #555; }
