@@ -1,41 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interactive Periodic Table & Lewis Diagram</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Periodic Table</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Interactive Periodic Table & Lewis Diagram</h1>
-  </header>
+  <h1>Interactive Periodic Table</h1>
+  <div id="legend"></div>
+  <div id="periodic-table"></div>
 
-  <section class="table-section">
-    <input type="text" id="search" placeholder="Search element by symbol or name...">
-    <div id="periodic-table"></div>
-  </section>
-
-  <section class="info-section">
-    <h2>Element Information</h2>
-    <div id="element-info">
-      <p>Hover over an element to see details.</p>
+  <div id="workspace">
+    <div id="calculator">
+      <h2>Molar Mass Calculator</h2>
+      <input type="text" id="formulaInput" placeholder="Enter compound (e.g. H2O)" />
+      <button id="calcBtn">Calculate</button>
+      <p id="molarResult"></p>
+      <h3>Element Log:</h3>
+      <ul id="elementLog"></ul>
     </div>
-  </section>
 
-  <section class="compound-section">
-    <h2>Build a Compound</h2>
-    <button onclick="addElement()">Add Element</button>
-    <div id="compound-list"></div>
-    <p>Total Molar Mass: <span id="total-mass">0.000</span> g/mol</p>
-  </section>
+    <div id="lewisDiagram">
+      <h2>Lewis Dot Diagram Generator</h2>
+      <p>Click an element to see its Lewis Diagram</p>
+      <div id="diagramArea"></div>
+      <h3>Drag-and-Drop Workshop</h3>
+      <div id="customWorkshop" class="drop-zone"></div>
+    </div>
+  </div>
 
-  <section class="lewis-section">
-    <h2>Lewis Diagram Workspace</h2>
-    <p>Drag elements to create your molecule:</p>
-    <div id="lewis-workspace"></div>
-  </section>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

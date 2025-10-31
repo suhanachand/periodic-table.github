@@ -19,136 +19,188 @@ const elements = {
   Ar: { name: "Argon", mass: 39.948, valence: 8, type: "noble", electrons: 18 },
   K: { name: "Potassium", mass: 39.098, valence: 1, type: "alkali", electrons: 19 },
   Ca: { name: "Calcium", mass: 40.078, valence: 2, type: "alkaline", electrons: 20 },
-  Sc: { name: "Scandium", number: 21, mass: 44.955, valence: 3, group: 3 },
-  Ti: { name: "Titanium", number: 22, mass: 47.867, valence: 4, group: 4 },
-  V: { name: "Vanadium", number: 23, mass: 50.942, valence: 5, group: 5 },
-  Cr: { name: "Chromium", number: 24, mass: 51.996, valence: 6, group: 6 },
-  Mn: { name: "Manganese", number: 25, mass: 54.938, valence: 7, group: 7 },
-  Fe: { name: "Iron", number: 26, mass: 55.845, valence: 8, group: 8 },
-  Co: { name: "Cobalt", number: 27, mass: 58.933, valence: 9, group: 9 },
-  Ni: { name: "Nickel", number: 28, mass: 58.693, valence: 10, group: 10 },
-  Cu: { name: "Copper", number: 29, mass: 63.546, valence: 11, group: 11 },
-  Zn: { name: "Zinc", number: 30, mass: 65.38, valence: 12, group: 12 },
-  Ga: { name: "Gallium", number: 31, mass: 69.723, valence: 3, group: 13 },
-  Ge: { name: "Germanium", number: 32, mass: 72.63, valence: 4, group: 14 },
-  As: { name: "Arsenic", number: 33, mass: 74.922, valence: 5, group: 15 },
-  Se: { name: "Selenium", number: 34, mass: 78.971, valence: 6, group: 16 },
-  Br: { name: "Bromine", number: 35, mass: 79.904, valence: 7, group: 17 },
-  Kr: { name: "Krypton", number: 36, mass: 83.798, valence: 8, group: 18 },
-  Rb: { name: "Rubidium", number: 37, mass: 85.468, valence: 1, group: 1 },
-  Sr: { name: "Strontium", number: 38, mass: 87.62, valence: 2, group: 2 },
-  Y: { name: "Yttrium", number: 39, mass: 88.906, valence: 3, group: 3 },
-  Zr: { name: "Zirconium", number: 40, mass: 91.224, valence: 4, group: 4 },
-  Nb: { name: "Niobium", number: 41, mass: 92.906, valence: 5, group: 5 },
-  Mo: { name: "Molybdenum", number: 42, mass: 95.95, valence: 6, group: 6 },
-  Tc: { name: "Technetium", number: 43, mass: 98, valence: 7, group: 7 },
-  Ru: { name: "Ruthenium", number: 44, mass: 101.07, valence: 8, group: 8 },
-  Rh: { name: "Rhodium", number: 45, mass: 102.91, valence: 9, group: 9 },
-  Pd: { name: "Palladium", number: 46, mass: 106.42, valence: 10, group: 10 },
-  Ag: { name: "Silver", number: 47, mass: 107.87, valence: 11, group: 11 },
-  Cd: { name: "Cadmium", number: 48, mass: 112.41, valence: 12, group: 12 },
-  In: { name: "Indium", number: 49, mass: 114.82, valence: 3, group: 13 },
-  Sn: { name: "Tin", number: 50, mass: 118.71, valence: 4, group: 14 },
-  Sb: { name: "Antimony", number: 51, mass: 121.76, valence: 5, group: 15 },
-  Te: { name: "Tellurium", number: 52, mass: 127.6, valence: 6, group: 16 },
-  I: { name: "Iodine", number: 53, mass: 126.90, valence: 7, group: 17 },
-  Xe: { name: "Xenon", number: 54, mass: 131.29, valence: 8, group: 18 },
-  Cs: { name: "Cesium", number: 55, mass: 132.91, valence: 1, group: 1 },
-  Ba: { name: "Barium", number: 56, mass: 137.33, valence: 2, group: 2 },
-  La: { name: "Lanthanum", number: 57, mass: 138.91, valence: 3, group: "Lanthanide" },
-  Ce: { name: "Cerium", number: 58, mass: 140.12, valence: 4, group: "Lanthanide" },
-  Pr: { name: "Praseodymium", number: 59, mass: 140.91, valence: 3, group: "Lanthanide" },
-  Nd: { name: "Neodymium", number: 60, mass: 144.24, valence: 3, group: "Lanthanide" },
-  Pm: { name: "Promethium", number: 61, mass: 145, valence: 3, group: "Lanthanide" },
-  Sm: { name: "Samarium", number: 62, mass: 150.36, valence: 3, group: "Lanthanide" },
-  Eu: { name: "Europium", number: 63, mass: 151.96, valence: 2, group: "Lanthanide" },
-  Gd: { name: "Gadolinium", number: 64, mass: 157.25, valence: 3, group: "Lanthanide" },
-  Tb: { name: "Terbium", number: 65, mass: 158.93, valence: 3, group: "Lanthanide" },
-  Dy: { name: "Dysprosium", number: 66, mass: 162.50, valence: 3, group: "Lanthanide" }
+  Sc: { name: "Scandium", mass: 44.96, valence: 3, type: "transition metal", electrons: 21 },
+  Ti: { name: "Titanium", mass: 47.87, valence: 4, type: "transition metal", electrons: 22 },
+  V: { name: "Vanadium", mass: 50.94, valence: 5, type: "transition metal", electrons: 23 },
+  Cr: { name: "Chromium", mass: 52.00, valence: 6, type: "transition metal", electrons: 24 },
+  Mn: { name: "Manganese", mass: 54.94, valence: 7, type: "transition metal", electrons: 25 },
+  Fe: { name: "Iron", mass: 55.85, valence: 2, type: "transition metal", electrons: 26 },
+  Co: { name: "Cobalt", mass: 58.93, valence: 2, type: "transition metal", electrons: 27 },
+  Ni: { name: "Nickel", mass: 58.69, valence: 2, type: "transition metal", electrons: 28 },
+  Cu: { name: "Copper", mass: 63.55, valence: 1, type: "transition metal", electrons: 29 },
+  Zn: { name: "Zinc", mass: 65.38, valence: 2, type: "transition metal", electrons: 30 },
+  Ga: { name: "Gallium", mass: 69.72, valence: 3, type: "post-transition metal", electrons: 31 },
+  Ge: { name: "Germanium", mass: 72.63, valence: 4, type: "metalloid", electrons: 32 },
+  As: { name: "Arsenic", mass: 74.92, valence: 5, type: "metalloid", electrons: 33 },
+  Se: { name: "Selenium", mass: 78.97, valence: 6, type: "nonmetal", electrons: 34 },
+  Br: { name: "Bromine", mass: 79.90, valence: 7, type: "halogen", electrons: 35 },
+  Kr: { name: "Krypton", mass: 83.80, valence: 8, type: "noble gas", electrons: 36 },
+  Rb: { name: "Rubidium", mass: 85.47, valence: 1, type: "alkali metal", electrons: 37 },
+  Sr: { name: "Strontium", mass: 87.62, valence: 2, type: "alkaline earth metal", electrons: 38 },
+  Y: { name: "Yttrium", mass: 88.91, valence: 3, type: "transition metal", electrons: 39 },
+  Zr: { name: "Zirconium", mass: 91.22, valence: 4, type: "transition metal", electrons: 40 },
+  Nb: { name: "Niobium", mass: 92.91, valence: 5, type: "transition metal", electrons: 41 },
+  Mo: { name: "Molybdenum", mass: 95.95, valence: 6, type: "transition metal", electrons: 42 },
+  Tc: { name: "Technetium", mass: 98.00, valence: 7, type: "transition metal", electrons: 43 },
+  Ru: { name: "Ruthenium", mass: 101.07, valence: 8, type: "transition metal", electrons: 44 },
+  Rh: { name: "Rhodium", mass: 102.91, valence: 3, type: "transition metal", electrons: 45 },
+  Pd: { name: "Palladium", mass: 106.42, valence: 2, type: "transition metal", electrons: 46 },
+  Ag: { name: "Silver", mass: 107.87, valence: 1, type: "transition metal", electrons: 47 },  
+  Cd: { name: "Cadmium", mass: 112.41, valence: 2, type: "transition metal", electrons: 48 },
+  In: { name: "Indium", mass: 114.82, valence: 3, type: "post-transition metal", electrons: 49 },
+  Sn: { name: "Tin", mass: 118.71, valence: 4, type: "post-transition metal", electrons: 50 },
+  Sb: { name: "Antimony", mass: 121.76, valence: 5, type: "metalloid", electrons: 51 },
+  Te: { name: "Tellurium", mass: 127.60, valence: 6, type: "metalloid", electrons: 52 },
+  I: { name: "Iodine", mass: 126.90, valence: 7, type: "halogen", electrons: 53 },
+  Xe: { name: "Xenon", mass: 131.29, valence: 8, type: "noble gas", electrons: 54 },
+  Cs: { name: "Cesium", mass: 132.91, valence: 1, type: "alkali metal", electrons: 55 },
+  Ba: { name: "Barium", mass: 137.33, valence: 2, type: "alkaline earth metal", electrons: 56 },
+  La: { name: "Lanthanum", mass: 138.91, valence: 3, type: "lanthanide", electrons: 57 },
+  Ce: { name: "Cerium", mass: 140.12, valence: 4, type: "lanthanide", electrons: 58 },
+  Pr: { name: "Praseodymium", mass: 140.91, valence: 3, type: "lanthanide", electrons: 59 },
+  Nd: { name: "Neodymium", mass: 144.24, valence: 3, type: "lanthanide", electrons: 60 },
+  Pm: { name: "Promethium", mass: 145.00, valence: 3, type: "lanthanide", electrons: 61 },
+  Sm: { name: "Samarium", mass: 150.36, valence: 3, type: "lanthanide", electrons: 62 },
+  Eu: { name: "Europium", mass: 151.96, valence: 2, type: "lanthanide", electrons: 63 },
+  Gd: { name: "Gadolinium", mass: 157.25, valence: 3, type: "lanthanide", electrons: 64 },
+  Tb: { name: "Terbium", mass: 158.93, valence: 3, type: "lanthanide", electrons: 65 },
+  Dy: { name: "Dysprosium", mass: 162.50, valence: 3, type: "lanthanide", electrons: 66 },
+  Ho: { name: "Holmium", mass: 164.93, valence: 3, type: "lanthanide", electrons: 67 },
+  Er: { name: "Erbium", mass: 167.26, valence: 3, type: "lanthanide", electrons: 68 },
+  Tm: { name: "Thulium", mass: 168.93, valence: 3, type: "lanthanide", electrons: 69 },
+  Yb: { name: "Ytterbium", mass: 173.04, valence: 2, type: "lanthanide", electrons: 70 },
+  Lu: { name: "Lutetium", mass: 174.97, valence: 3, type: "lanthanide", electrons: 71 },
+  Hf: { name: "Hafnium", mass: 178.49, valence: 4, type: "transition metal", electrons: 72 },
+  Ta: { name: "Tantalum", mass: 180.95, valence: 5, type: "transition metal", electrons: 73 },
+  W: { name: "Tungsten", mass: 183.84, valence: 6, type: "transition metal", electrons: 74 },
+  Re: { name: "Rhenium", mass: 186.21, valence: 7, type: "transition metal", electrons: 75 },
+  Os: { name: "Osmium", mass: 190.23, valence: 8, type: "transition metal", electrons: 76 },
+  Ir: { name: "Iridium", mass: 192.22, valence: 9, type: "transition metal", electrons: 77 },
+  Pt: { name: "Platinum", mass: 195.08, valence: 2, type: "transition metal", electrons: 78 },
+  Au: { name: "Gold", mass: 196.97, valence: 1, type: "transition metal", electrons: 79 },
+  Hg: { name: "Mercury", mass: 200.59, valence: 2, type: "transition metal", electrons: 80 },
+  Tl: { name: "Thallium", mass: 204.38, valence: 3, type: "post-transition metal", electrons: 81 },
+  Pb: { name: "Lead", mass: 207.2, valence: 4, type: "post-transition metal", electrons: 82 },
+  Bi: { name: "Bismuth", mass: 208.98, valence: 5, type: "post-transition metal", electrons: 83 },
+  Po: { name: "Polonium", mass: 209.00, valence: 6, type: "metalloid", electrons: 84 },
+  At: { name: "Astatine", mass: 210.00, valence: 7, type: "halogen", electrons: 85 },
+  Rn: { name: "Radon", mass: 222.00, valence: 8, type: "noble gas", electrons: 86 },
+  Fr: { name: "Francium", mass: 223.00, valence: 1, type: "alkali metal", electrons: 87 },
+  Ra: { name: "Radium", mass: 226.00, valence: 2, type: "alkaline earth metal", electrons: 88 },
+  Ac: { name: "Actinium", mass: 227.00, valence: 3, type: "actinide", electrons: 89 },
+  Th: { name: "Thorium", mass: 232.04, valence: 4, type: "actinide", electrons: 90 },
+  Pa: { name: "Protactinium", mass: 231.04, valence: 5, type: "actinide", electrons: 91 },
+  U: { name: "Uranium", mass: 238.03, valence: 6, type: "actinide", electrons: 92 },
+  Np: { name: "Neptunium", mass: 237.00, valence: 5, type: "actinide", electrons: 93 },
+  Pu: { name: "Plutonium", mass: 244.00, valence: 6, type: "actinide", electrons: 94 },
+  Am: { name: "Americium", mass: 243.00, valence: 3, type: "actinide", electrons: 95 },
+  Cm: { name: "Curium", mass: 247.00, valence: 3, type: "actinide", electrons: 96 },
+  Bk: { name: "Berkelium", mass: 247.00, valence: 3, type: "actinide", electrons: 97 },
+  Cf: { name: "Californium", mass: 251.00, valence: 3, type: "actinide", electrons: 98 },
+  Es: { name: "Einsteinium", mass: 252.00, valence: 3, type: "actinide", electrons: 99 },
+  Fm: { name: "Fermium", mass: 257.00, valence: 3, type: "actinide", electrons: 100 },
+  Md: { name: "Mendelevium", mass: 258.00, valence: 3, type: "actinide", electrons: 101 },  
+  No: { name: "Nobelium", mass: 259.00, valence: 2, type: "actinide", electrons: 102 },
+  Lr: { name: "Lawrencium", mass: 262.00, valence: 3, type: "actinide", electrons: 103 },
+  Rf: { name: "Rutherfordium", mass: 267.00, valence: 4, type: "transition metal", electrons: 104 },
+  Db: { name: "Dubnium", mass: 270.00, valence: 5, type: "transition metal", electrons: 105 },
+  Sg: { name: "Seaborgium", mass: 271.00, valence: 6, type: "transition metal", electrons: 106 },
+  Bh: { name: "Bohrium", mass: 270.00, valence: 7, type: "transition metal", electrons: 107 },
+  Hs: { name: "Hassium", mass: 277.00, valence: 8, type: "transition metal", electrons: 108 },
+  Mt: { name: "Meitnerium", mass: 278.00, valence: 9, type: "transition metal", electrons: 109 },
+  Ds: { name: "Darmstadtium", mass: 281.00, valence: 10, type: "transition metal", electrons: 110 },
+  Rg: { name: "Roentgenium", mass: 282.00, valence: 1, type: "transition metal", electrons: 111 },
+  Cn: { name: "Copernicium", mass: 285.00, valence: 2, type: "transition metal", electrons: 112 },
+  Nh: { name: "Nihonium", mass: 286.00, valence: 3, type: "post-transition metal", electrons: 113 },
+  Fl: { name: "Flerovium", mass: 289.00, valence: 4, type: "post-transition metal", electrons: 114 },
+  Mc: { name: "Moscovium", mass: 290.00, valence: 3, type: "post-transition metal", electrons: 115 },
+  Lv: { name: "Livermorium", mass: 293.00, valence: 6, type: "post-transition metal", electrons: 116 },
+  Ts: { name: "Tennessine", mass: 294.00, valence: 7, type: "halogen", electrons: 117 },
+  Og: { name: "Oganesson", mass: 294.00, valence: 8, type: "noble gas", electrons: 118 }
 };
 
-let compound = [];
-let lewisElements = [];
-const tableContainer = document.getElementById("periodic-table");
-const elementInfo = document.getElementById("element-info");
-const compoundList = document.getElementById("compound-list");
-const lewisWorkspace = document.getElementById("lewis-workspace");
+const groupColors = {
+  "alkali metal": "#f54242",
+  "alkaline earth metal": "#f5a142",
+  "transition metal": "#f5de42",
+  "metalloid": "#42f554",
+  "nonmetal": "#4287f5",
+  "halogen": "#9b42f5",
+  "noble gas": "#f5429e",
+  "lanthanide": "#42f5f5",
+  "actinide": "#f5f542"
+};
 
-// Build periodic table
-for (const sym in elements) {
-  const el = elements[sym];
-  const div = document.createElement("div");
-  div.className = `element ${el.type}`;
-  div.innerHTML = `${sym}<br>${el.mass}`;
-  div.title = el.name;
-  div.addEventListener("mouseover", () => showInfo(sym));
-  div.addEventListener("click", () => addToLewis(sym));
-  tableContainer.appendChild(div);
+// === PERIODIC TABLE RENDERING ===
+const table = document.getElementById("periodic-table");
+const tooltip = document.createElement("div");
+tooltip.className = "tooltip";
+document.body.appendChild(tooltip);
+
+for (const [symbol, info] of Object.entries(elements)) {
+  const elDiv = document.createElement("div");
+  elDiv.className = "element";
+  elDiv.style.backgroundColor = groupColors[info.group] || "#555";
+  elDiv.innerHTML = `<strong>${symbol}</strong><small>${info.mass}</small>`;
+
+  elDiv.addEventListener("mouseover", (e) => {
+    tooltip.innerHTML = `<strong>${info.name}</strong><br>Mass: ${info.mass}<br>Valence: ${info.valence}`;
+    tooltip.style.display = "block";
+    tooltip.style.left = e.pageX + 10 + "px";
+    tooltip.style.top = e.pageY + 10 + "px";
+  });
+
+  elDiv.addEventListener("mouseout", () => (tooltip.style.display = "none"));
+  elDiv.addEventListener("click", () => showLewisDiagram(symbol, info.valence));
+  table.appendChild(elDiv);
 }
 
-function showInfo(sym) {
-  const el = elements[sym];
-  elementInfo.innerHTML = `
-    <p><b>${el.name} (${sym})</b></p>
-    <p>Atomic Mass: ${el.mass} g/mol</p>
-    <p>Valence Electrons: ${el.valence}</p>
-    <p>Electron Count: ${el.electrons}</p>
-    <p>Type: ${el.type}</p>
-  `;
-}
-
-// Add element to compound and compute molar mass
-function addElement() {
-  const symbol = prompt("Enter element symbol:").trim();
-  const quantity = parseInt(prompt("Enter quantity:"));
-  if (elements[symbol] && !isNaN(quantity)) {
-    compound.push({ symbol, quantity });
-    updateCompoundList();
-    updateMolarMass();
-  } else {
-    alert("Invalid input");
+// === MOLAR MASS CALCULATOR ===
+document.getElementById("calcBtn").addEventListener("click", () => {
+  const formula = document.getElementById("formulaInput").value;
+  const regex = /([A-Z][a-z]*)(\d*)/g;
+  let totalMass = 0;
+  let match;
+  const log = document.getElementById("elementLog");
+  log.innerHTML = "";
+  while ((match = regex.exec(formula)) !== null) {
+    const el = match[1];
+    const count = parseInt(match[2] || "1");
+    if (elements[el]) {
+      totalMass += elements[el].mass * count;
+      const li = document.createElement("li");
+      li.textContent = `${count} × ${el} (${elements[el].mass})`;
+      log.appendChild(li);
+    }
   }
-}
-
-function updateCompoundList() {
-  compoundList.innerHTML = "";
-  compound.forEach(el => {
-    const p = document.createElement("p");
-    p.textContent = `${el.symbol} x ${el.quantity}`;
-    compoundList.appendChild(p);
-  });
-}
-
-function updateMolarMass() {
-  let total = 0;
-  compound.forEach(el => total += elements[el.symbol].mass * el.quantity);
-  document.getElementById("total-mass").innerText = total.toFixed(3);
-}
-
-// Lewis diagram functionality
-function addToLewis(sym) {
-  const el = document.createElement("div");
-  el.className = "lewis-element";
-  el.textContent = sym;
-  el.draggable = true;
-  el.addEventListener("dragstart", e => e.dataTransfer.setData("text/plain", sym));
-  lewisWorkspace.appendChild(el);
-}
-
-// Drag and drop workspace
-lewisWorkspace.addEventListener("dragover", e => e.preventDefault());
-lewisWorkspace.addEventListener("drop", e => {
-  e.preventDefault();
-  const sym = e.dataTransfer.getData("text");
-  addToLewis(sym);
+  document.getElementById("molarResult").textContent = `Molar Mass: ${totalMass.toFixed(3)} g/mol`;
 });
 
-// Search functionality
-document.getElementById("search").addEventListener("input", e => {
-  const val = e.target.value.toLowerCase();
-  [...tableContainer.children].forEach(div => {
-    const sym = div.innerText.split("\n")[0].toLowerCase();
-    const name = div.title.toLowerCase();
-    div.style.display = sym.includes(val) || name.includes(val) ? "block" : "none";
-  });
-});
+// === LEWIS DIAGRAM GENERATOR ===
+function showLewisDiagram(symbol, valence) {
+  const area = document.getElementById("diagramArea");
+  area.innerHTML = `<h3>${symbol}</h3>`;
+  const dotContainer = document.createElement("div");
+  dotContainer.style.display = "inline-block";
+  dotContainer.style.position = "relative";
+  dotContainer.style.width = "80px";
+  dotContainer.style.height = "80px";
+  dotContainer.style.border = "2px solid white";
+  dotContainer.style.borderRadius = "50%";
+  dotContainer.style.marginTop = "10px";
+
+  for (let i = 0; i < valence; i++) {
+    const dot = document.createElement("div");
+    dot.style.position = "absolute";
+    dot.style.width = "8px";
+    dot.style.height = "8px";
+    dot.style.backgroundColor = "white";
+    dot.style.borderRadius = "50%";
+    const angle = (i / valence) * 2 * Math.PI;
+    dot.style.left = `${40 + 30 * Math.cos(angle)}px`;
+    dot.style.top = `${40 + 30 * Math.sin(angle)}px`;
+    dotContainer.appendChild(dot);
+  }
+
+  area.appendChild(dotContainer);
+}
