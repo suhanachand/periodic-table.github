@@ -1,101 +1,54 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #0d1117;
-  color: #e6edf3;
+  background-color: #ffffff;
+  color: #000000;
   text-align: center;
   margin: 0;
   padding: 0;
 }
 
-h1 {
-  background-color: #161b22;
-  padding: 15px;
-  border-bottom: 2px solid #30363d;
-}
+h1 { background-color: #ff9191; padding: 15px; border-bottom: 2px solid #30363d; }
+
+#legend { display: flex; justify-content: center; flex-wrap: wrap; margin: 10px 0; }
+.legend-item { padding: 5px 10px; margin: 2px; color: #000; font-weight: bold; border-radius: 4px; }
 
 #periodic-table {
   display: grid;
   grid-template-columns: repeat(18, 50px);
+  grid-auto-rows: 50px;
   grid-gap: 4px;
   justify-content: center;
   margin: 20px auto;
-  max-width: 960px;
 }
 
 .element {
-  width: 50px;
-  height: 50px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 12px;
-  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.element:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
+.element:hover { transform: scale(1.1); box-shadow: 0 0 10px rgba(255,255,255,0.3); }
 
-.tooltip {
-  position: absolute;
-  background-color: #161b22;
-  border: 1px solid #30363d;
-  padding: 5px;
-  border-radius: 6px;
-  display: none;
-  z-index: 10;
-}
-
-.hidden { display: none; }
-
-#workspace {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-  flex-wrap: wrap;
-}
-
+#workspace { display: flex; justify-content: space-around; margin-top: 20px; flex-wrap: wrap; }
 #calculator, #lewisDiagram {
-  background: #161b22;
-  border-radius: 10px;
-  padding: 15px;
-  width: 40%;
-  min-width: 300px;
-  box-shadow: 0 0 10px #30363d;
+  background-color: #b9d6ff; border-radius: 10px; padding: 15px; width: 45%; min-width: 300px;
+  box-shadow: 0 0 10px #30363d; margin-bottom: 20px;
 }
+input, select { padding: 5px; margin: 5px; }
+button { padding: 5px 10px; margin: 5px; background: #238636; color: white; border: none; border-radius: 5px; cursor: pointer; }
 
-input[type="number"] {
-  width: 60px;
-  padding: 3px;
-  margin: 3px;
+#diagramArea { margin-top: 10px; }
+.diagram-circle {
+  position: relative; width: 80px; height: 80px; margin: 10px auto; border-radius: 50%;
+  border: 2px solid white; display: flex; justify-content: center; align-items: center; font-weight: bold;
 }
-
-button {
-  padding: 5px 10px;
-  margin: 8px;
-  background: #238636;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.drop-zone {
-  border: 2px dashed #8b949e;
-  height: 150px;
-  margin-top: 10px;
-  border-radius: 8px;
-  padding: 10px;
-  position: relative;
-}
-
-.draggable {
-  position: absolute;
-  cursor: grab;
-  user-select: none;
+.dot {
+  position: absolute; width: 10px; height: 10px; background-color: white; border-radius: 50%;
 }

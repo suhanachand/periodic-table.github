@@ -1,56 +1,58 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advanced Interactive Periodic Table</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interactive Periodic Table</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <h1>Interactive Periodic Table</h1>
 
-  <button id="toggleTrends">Show Periodic Trends</button>
-  <div id="trendInfo" class="hidden">
-    <h3>Periodic Trends</h3>
-    <ul>
-      <li><strong>Electronegativity:</strong> increases across a period, decreases down a group</li>
-      <li><strong>Ionization Energy:</strong> increases across a period</li>
-      <li><strong>Atomic Radius:</strong> decreases across a period, increases down a group</li>
-    </ul>
+  <div id="legend">
+    <h3>Element Groups Legend</h3>
+    <div class="legend-item" style="background:#f54242;">Alkali Metals</div>
+    <div class="legend-item" style="background:#f5a142;">Alkaline Earth Metals</div>
+    <div class="legend-item" style="background:#f5de42;">Transition Metals</div>
+    <div class="legend-item" style="background:#42f554;">Metalloids</div>
+    <div class="legend-item" style="background:#4287f5;">Nonmetals</div>
+    <div class="legend-item" style="background:#9b42f5;">Halogens</div>
+    <div class="legend-item" style="background:#f5429e;">Noble Gases</div>
+    <div class="legend-item" style="background:#42f5f5;">Lanthanides</div>
+    <div class="legend-item" style="background:#f5f542;">Actinides</div>
   </div>
 
-  <div id="legend"></div>
   <div id="periodic-table"></div>
 
-  <div id="workspace">
+  <section id="workspace">
     <div id="calculator">
       <h2>Molar Mass Calculator</h2>
-      <div id="elementInputs"></div>
-      <button id="calcBtn">Calculate</button>
-      <p id="molarResult"></p>
-      <h3>Element Log:</h3>
+      <div id="elementSelects"></div>
+      <button id="addElementBtn">Add Element</button>
+      <button id="clearBtn">Clear</button>
+      <p>Total Molar Mass: <span id="totalMass">0.000</span> g/mol</p>
+      <h3>Elements Added:</h3>
       <ul id="elementLog"></ul>
     </div>
 
     <div id="lewisDiagram">
       <h2>Lewis Dot Diagram</h2>
-      <button id="showRulesBtn">Show Lewis Diagram Rules</button>
-      <div id="rules" class="hidden">
-        <ul>
-          <li>Count the total number of valence electrons.</li>
-          <li>Place the least electronegative atom in the center.</li>
-          <li>Connect atoms with single bonds first.</li>
-          <li>Distribute remaining electrons as lone pairs.</li>
-          <li>Form double/triple bonds if atoms don’t have full octets.</li>
-        </ul>
-      </div>
-      <p>Click an element to auto-generate its Lewis diagram or drag to build your own.</p>
       <div id="diagramArea"></div>
-      <h3>Workshop</h3>
-      <div id="customWorkshop" class="drop-zone"></div>
+      <div id="rules">
+        <h4>Lewis drawing steps (check as you go)</h4>
+        <label><input type="checkbox" class="rule"> Count valence electrons</label>
+        <label><input type="checkbox" class="rule"> Put central atom</label>
+        <label><input type="checkbox" class="rule"> Connect with single bonds</label>
+        <label><input type="checkbox" class="rule"> Distribute remaining electrons as lone pairs</label>
+        <label><input type="checkbox" class="rule"> Form double/triple bonds if needed</label>
+      </div>
     </div>
-  </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
 </html>
+
+
+
