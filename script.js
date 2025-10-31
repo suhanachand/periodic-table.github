@@ -131,76 +131,146 @@ const groupColors = {
   "actinide": "#f5f542"
 };
 
-// === PERIODIC TABLE RENDERING ===
 const table = document.getElementById("periodic-table");
 const tooltip = document.createElement("div");
 tooltip.className = "tooltip";
 document.body.appendChild(tooltip);
 
+// === Render Periodic Table ===
 for (const [symbol, info] of Object.entries(elements)) {
   const elDiv = document.createElement("div");
   elDiv.className = "element";
   elDiv.style.backgroundColor = groupColors[info.group] || "#555";
-  elDiv.innerHTML = `<strong>${symbol}</strong><small>${info.mass}</small>`;
-
-  elDiv.addEventListener("mouseover", (e) => {
+  elDiv.innerHTML = `<strong>${symbol}</strong>`;
+  elDiv.addEventListener("mouseover", e => {
     tooltip.innerHTML = `<strong>${info.name}</strong><br>Mass: ${info.mass}<br>Valence: ${info.valence}`;
     tooltip.style.display = "block";
     tooltip.style.left = e.pageX + 10 + "px";
     tooltip.style.top = e.pageY + 10 + "px";
   });
-
-  elDiv.addEventListener("mouseout", () => (tooltip.style.display = "none"));
+  elDiv.addEventListener("mouseout", () => tooltip.style.display = "none");
   elDiv.addEventListener("click", () => showLewisDiagram(symbol, info.valence));
   table.appendChild(elDiv);
 }
 
-// === MOLAR MASS CALCULATOR ===
+// === Periodic Trends Toggle ===
+const toggleBtn = document.getElementById("toggleTrends");
+const trendInfo = document.getElementById("trendInfo");
+let trendsVisible = false;
+
+toggleBtn.addEventListener("click", () => {
+  trendsVisible = !trendsVisible;
+  trendInfo.classList.toggle("hidden", !trendsVisible);
+  toggleBtn.textContent = trendsVisible ? "Hide Periodic Trends" : "Show Periodic Trends";
+  if (trendsVisible) {
+    document.querySelectorAll(".element").forEach(el => {
+      const sym = el.textContent.trim();
+      const en = elements[sym]?.electronegativity;
+      if (en) {
+        const hue = 240 - (en / 4) * 240;
+        el.style.backgroundColor = `hsl(${hue}, 70%, 50%)`;
+      }
+    });
+  } else {
+    document.querySelectorAll(".element").forEach(el => {
+      const sym = el.textContent.trim();
+      el.style.backgroundColor = groupColors[elements[sym].group] || "#555";
+    });
+  }
+});
+
+// === Molar Mass Calculator ===
+const elementInputs = document.getElementById("elementInputs");
+Object.keys(elements).forEach(sym => {
+  const div = document.createElement("div");
+  div.innerHTML = `${sym}: <input type="number" id="count-${sym}" min="0" value="0">`;
+  elementInputs.appendChild(div);
+});
+
 document.getElementById("calcBtn").addEventListener("click", () => {
-  const formula = document.getElementById("formulaInput").value;
-  const regex = /([A-Z][a-z]*)(\d*)/g;
-  let totalMass = 0;
-  let match;
+  let total = 0;
   const log = document.getElementById("elementLog");
   log.innerHTML = "";
-  while ((match = regex.exec(formula)) !== null) {
-    const el = match[1];
-    const count = parseInt(match[2] || "1");
-    if (elements[el]) {
-      totalMass += elements[el].mass * count;
+  for (const [sym, info] of Object.entries(elements)) {
+    const count = Number(document.getElementById(`count-${sym}`).value);
+    if (count > 0) {
+      total += count * info.mass;
       const li = document.createElement("li");
-      li.textContent = `${count} × ${el} (${elements[el].mass})`;
+      li.textContent = `${count} × ${sym} (${info.mass})`;
       log.appendChild(li);
     }
   }
-  document.getElementById("molarResult").textContent = `Molar Mass: ${totalMass.toFixed(3)} g/mol`;
+  document.getElementById("molarResult").textContent = `Molar Mass: ${total.toFixed(3)} g/mol`;
 });
 
-// === LEWIS DIAGRAM GENERATOR ===
+// === Lewis Diagram ===
 function showLewisDiagram(symbol, valence) {
   const area = document.getElementById("diagramArea");
   area.innerHTML = `<h3>${symbol}</h3>`;
-  const dotContainer = document.createElement("div");
-  dotContainer.style.display = "inline-block";
-  dotContainer.style.position = "relative";
-  dotContainer.style.width = "80px";
-  dotContainer.style.height = "80px";
-  dotContainer.style.border = "2px solid white";
-  dotContainer.style.borderRadius = "50%";
-  dotContainer.style.marginTop = "10px";
+  const container = document.createElement("div");
+  container.className = "draggable";
+  container.style.width = "100px";
+  container.style.height = "100px";
+  container.style.border = "2px solid white";
+  container.style.borderRadius = "50%";
+  container.style.margin = "auto";
+  container.style.position = "relative";
+  container.textContent = symbol;
 
   for (let i = 0; i < valence; i++) {
     const dot = document.createElement("div");
     dot.style.position = "absolute";
     dot.style.width = "8px";
     dot.style.height = "8px";
-    dot.style.backgroundColor = "white";
+    dot.style.background = "white";
     dot.style.borderRadius = "50%";
     const angle = (i / valence) * 2 * Math.PI;
-    dot.style.left = `${40 + 30 * Math.cos(angle)}px`;
-    dot.style.top = `${40 + 30 * Math.sin(angle)}px`;
-    dotContainer.appendChild(dot);
+    dot.style.left = `${45 + 35 * Math.cos(angle)}px`;
+    dot.style.top = `${45 + 35 * Math.sin(angle)}px`;
+    container.appendChild(dot);
   }
-
-  area.appendChild(dotContainer);
+  makeDraggable(container);
+  area.appendChild(container);
 }
+
+// === Drag & Drop Workshop ===
+const workshop = document.getElementById("customWorkshop");
+workshop.addEventListener("dragover", e => e.preventDefault());
+workshop.addEventListener("drop", e => {
+  e.preventDefault();
+  const sym = e.dataTransfer.getData("text/plain");
+  if (sym) {
+    const newEl = document.createElement("div");
+    newEl.textContent = sym;
+    newEl.className = "draggable";
+    newEl.style.left = `${e.offsetX}px`;
+    newEl.style.top = `${e.offsetY}px`;
+    workshop.appendChild(newEl);
+    makeDraggable(newEl);
+  }
+});
+
+function makeDraggable(el) {
+  let offsetX, offsetY;
+  el.onmousedown = function (e) {
+    offsetX = e.offsetX;
+    offsetY = e.offsetY;
+    function moveAt(x, y) {
+      el.style.left = x - offsetX + "px";
+      el.style.top = y - offsetY + "px";
+    }
+    function onMouseMove(e) {
+      moveAt(e.pageX - workshop.offsetLeft, e.pageY - workshop.offsetTop);
+    }
+    document.addEventListener("mousemove", onMouseMove);
+    el.onmouseup = function () {
+      document.removeEventListener("mousemove", onMouseMove);
+      el.onmouseup = null;
+    };
+  };
+}
+
+// === Lewis Rules Toggle ===
+document.getElementById("showRulesBtn").addEventListener("click", () => {
+  document.getElementById("rules").classList.toggle("hidden");
+});

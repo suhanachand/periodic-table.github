@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interactive Periodic Table</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Interactive Periodic Table</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Interactive Periodic Table</h1>
+
+  <button id="toggleTrends">Show Periodic Trends</button>
+  <div id="trendInfo" class="hidden">
+    <h3>Periodic Trends</h3>
+    <ul>
+      <li><strong>Electronegativity:</strong> increases across a period, decreases down a group</li>
+      <li><strong>Ionization Energy:</strong> increases across a period</li>
+      <li><strong>Atomic Radius:</strong> decreases across a period, increases down a group</li>
+    </ul>
+  </div>
+
   <div id="legend"></div>
   <div id="periodic-table"></div>
 
   <div id="workspace">
     <div id="calculator">
       <h2>Molar Mass Calculator</h2>
-      <input type="text" id="formulaInput" placeholder="Enter compound (e.g. H2O)" />
+      <div id="elementInputs"></div>
       <button id="calcBtn">Calculate</button>
       <p id="molarResult"></p>
       <h3>Element Log:</h3>
@@ -22,10 +33,20 @@
     </div>
 
     <div id="lewisDiagram">
-      <h2>Lewis Dot Diagram Generator</h2>
-      <p>Click an element to see its Lewis Diagram</p>
+      <h2>Lewis Dot Diagram</h2>
+      <button id="showRulesBtn">Show Lewis Diagram Rules</button>
+      <div id="rules" class="hidden">
+        <ul>
+          <li>Count the total number of valence electrons.</li>
+          <li>Place the least electronegative atom in the center.</li>
+          <li>Connect atoms with single bonds first.</li>
+          <li>Distribute remaining electrons as lone pairs.</li>
+          <li>Form double/triple bonds if atoms don’t have full octets.</li>
+        </ul>
+      </div>
+      <p>Click an element to auto-generate its Lewis diagram or drag to build your own.</p>
       <div id="diagramArea"></div>
-      <h3>Drag-and-Drop Workshop</h3>
+      <h3>Workshop</h3>
       <div id="customWorkshop" class="drop-zone"></div>
     </div>
   </div>
